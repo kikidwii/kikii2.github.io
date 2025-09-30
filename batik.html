@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Batik Indonesia - Warisan Budaya Dunia</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <style>
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      line-height: 1.6;
+      background: #fef6fb;
+      color: #333;
+    }
+
+    /* Navbar */
+    .navbar {
+      background-color: #ffb6c1;
+    }
+    .navbar .nav-link {
+      color: #fff !important;
+      font-weight: 500;
+    }
+    .navbar .nav-link:hover {
+      color: #ffe4e9 !important;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(rgba(255,182,193,0.8), rgba(255,182,193,0.8)), url('img/hero-batik.jpg') no-repeat center/cover;
+      color: white;
+      text-align: center;
+      padding: 120px 20px;
+    }
+    .hero h1 {
+      font-size: 3rem;
+      font-weight: bold;
+    }
+    .hero p {
+      font-size: 1.2rem;
+      margin-top: 10px;
+    }
+
+    /* Section Styling */
+    section {
+      padding: 70px 0;
+    }
+    section h2 {
+      color: #d6336c;
+      margin-bottom: 30px;
+      font-weight: 700;
+    }
+
+    /* Card */
+    .card {
+      border: none;
+      border-radius: 15px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+      transition: 0.3s;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    /* Footer */
+    footer {
+      background: #ffb6c1;
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+    }
+    footer a {
+      color: white;
+      margin: 0 10px;
+      text-decoration: none;
+    }
+    footer a:hover {
+      color: #ffe4e9;
+    }
+
+    /* Custom Styles for Batik Website */
+    .section-title {
+      color: #d6336c;
+      margin-bottom: 30px;
+      font-weight: 700;
+    }
+    
+    .section-subtitle {
+      color: #666;
+      font-size: 1.1rem;
+      margin-bottom: 40px;
+    }
+    
+    .text-pink-dark {
+      color: #d6336c;
+    }
+    
+    .text-brown {
+      color: #5d4037;
+    }
+    
+    .history-image {
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    
+    .feature-box {
+      text-align: center;
+      padding: 20px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+      height: 100%;
+      transition: transform 0.3s;
+    }
+    
+    .feature-box:hover {
+      transform: translateY(-5px);
+    }
+    
+    .about-icon {
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+    }
+    
+    .history-timeline {
+      position: relative;
+      padding-left: 30px;
+    }
+    
+    .history-timeline::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 4px;
+      background: #ffb6c1;
+      border-radius: 2px;
+    }
+    
+    .timeline-item {
+      position: relative;
+      margin-bottom: 40px;
+      min-height: 80px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -37px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: #d6336c;
+    }
+    
+    .timeline-year {
+      display: inline-block;
+      background: #ffb6c1;
+      color: white;
+      padding: 5px 10px;
+      border-radius: 20px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    
+    .fact-card {
+      background: white;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+      height: 100%;
+      transition: transform 0.3s;
+    }
+    
+    .fact-card:hover {
+      transform: translateY(-5px);
+    }
+    
+    .fact-number {
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+      background: #ffb6c1;
+      color: white;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 40px;
+      font-weight: bold;
+      margin-bottom: 15px;
+    }
+    
+    .batik-card {
+      border: none;
+      border-radius: 15px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+      transition: 0.3s;
+      overflow: hidden;
+    }
+    
+    .batik-card:hover {
+      transform: translateY(-5px);
+    }
+    
+    .batik-card .card-img-top {
+      height: 250px;
+      object-fit: cover;
+    }
+    
+    .batik-pattern {
+      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path fill="%23ffb6c1" opacity="0.1" d="M0 0h100v100H0z"/><path fill="%23ffb6c1" opacity="0.2" d="M20 20h10v10H20zM70 20h10v10H70zM20 70h10v10H20zM70 70h10v10H70z"/></svg>');
+    }
+    
+    .btn-custom {
+      background: #d6336c;
+      color: white;
+      border: none;
+      padding: 10px 25px;
+      border-radius: 30px;
+      transition: 0.3s;
+    }
+    
+    .btn-custom:hover {
+      background: #c2255a;
+      color: white;
+      transform: translateY(-2px);
+    }
+    
+    .back-button {
+      margin-top: 40px;
+    }
+    
+    .row-equal {
+      display: flex;
+      flex-wrap: wrap;
+    }
+    
+    .row-equal > [class*='col-'] {
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+      .hero {
+        padding: 80px 20px;
+      }
+      
+      .history-timeline {
+        padding-left: 20px;
+      }
+      
+      .timeline-item::before {
+        left: -27px;
+      }
+      
+      .batik-card .card-img-top {
+        height: 200px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg">
+    <div class="container">
+      <a class="navbar-brand text-white fw-bold" href="#">Batik Indonesia</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="#Tentang">Tentang</a></li>
+          <li class="nav-item"><a class="nav-link" href="#Sejarah">Sejarah</a></li>
+          <li class="nav-item"><a class="nav-link" href="#Fakta">Fakta</a></li>
+          <li class="nav-item"><a class="nav-link" href="#Jenis">Jenis</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <h1>Warisan Budaya Batik Indonesia</h1>
+      <p>Keindahan dan filosofi dalam setiap helai kain</p>
+    </div>
+  </section>
+
+  <!-- Tentang -->
+  <section id="Tentang" class="section-about batik-pattern">
+    <div class="container">
+      <div class="row text-center mb-5">
+        <div class="col">
+          <h2 class="section-title">🎭 Tentang Batik Indonesia</h2>
+          <p class="section-subtitle">Warisan Budaya yang Mendunia dengan Nilai Filosofis Tinggi</p>
+        </div>
+      </div>
+      
+      <div class="row align-items-center mb-5">
+        <div class="col-md-6">
+          <img src="img/Cuplikan layar 2025-09-29 112433.png" alt="Seni Batik Indonesia" class="history-image img-fluid">
+        </div>
+        <div class="col-md-6">
+          <h3 class="text-pink-dark mb-4">Apa itu Batik?</h3>
+          <p class="text-brown mb-4">
+            Batik adalah seni lukis kain dengan menggunakan malam (lilin) sebagai pelindung warna dalam proses pewarnaan. 
+            Teknik ini telah menjadi bagian tak terpisahkan dari budaya Indonesia dan diakui UNESCO sebagai 
+            <strong>Warisan Kemanusiaan untuk Budaya Lisan dan Nonbendawi</strong> sejak tahun 2009.
+          </p>
+          <p class="text-brown">
+            Setiap goresan canting dan tetesan malam pada kain mengandung makna filosofis yang dalam, 
+            mencerminkan kearifan lokal dan nilai-nilai kehidupan masyarakat Indonesia.
+          </p>
+          <div class="mt-4">
+            <span class="badge bg-light text-dark p-2 me-2 mb-2">#BudayaNusantara</span>
+            <span class="badge bg-light text-dark p-2 me-2 mb-2">#WarisanDunia</span>
+            <span class="badge bg-light text-dark p-2 me-2 mb-2">#SeniTradisional</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-4 mb-4">
+          <div class="feature-box">
+            <div class="about-icon">🎨</div>
+            <h4 class="text-pink-dark">Teknik Pembuatan</h4>
+            <p class="text-brown">
+              Batik dibuat dengan teknik canting tulis, cap, atau printing. Batik tulis merupakan yang tertua dan paling bernilai seni tinggi.
+            </p>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="feature-box">
+            <div class="about-icon">🌏</div>
+            <h4 class="text-pink-dark">Pengakuan Dunia</h4>
+            <p class="text-brown">
+              Diakui UNESCO pada 2 Oktober 2009. Tanggal ini kini diperingati sebagai Hari Batik Nasional di Indonesia.
+            </p>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="feature-box">
+            <div class="about-icon">💝</div>
+            <h4 class="text-pink-dark">Nilai Filosofis</h4>
+            <p class="text-brown">
+              Setiap motif batik mengandung pesan moral, harapan, dan doa bagi pemakainya. Dari kelahiran hingga kematian.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sejarah -->
+  <section id="Sejarah" class="section-history">
+    <div class="container">
+      <div class="row text-center mb-5">
+        <div class="col">
+          <h2 class="section-title">📜 Sejarah Batik Indonesia</h2>
+          <p class="section-subtitle">Perjalanan Panjang dari Keraton hingga Diakui Dunia</p>
+        </div>
+      </div>
+      
+      <div class="row align-items-center">
+        <div class="col-md-6">
+          <div class="history-timeline">
+            <div class="timeline-item">
+              <span class="timeline-year">Abad ke-17</span>
+              <h5 class="text-pink-dark">Asal Usul Batik</h5>
+              <p class="text-brown">Batik pertama kali dikenal di Indonesia pada masa Kerajaan Majapahit. Awalnya hanya dikerjakan terbatas di kalangan keraton dan digunakan oleh keluarga kerajaan.</p>
+            </div>
+            
+            <div class="timeline-item">
+              <span class="timeline-year">Abad ke-18</span>
+              <h5 class="text-pink-dark">Penyebaran ke Masyarakat</h5>
+              <p class="text-brown">Batik mulai menyebar ke luar keraton dan dikembangkan oleh masyarakat. Setiap daerah mengembangkan motif khasnya sendiri dengan makna filosofis yang mendalam.</p>
+            </div>
+            
+            <div class="timeline-item">
+              <span class="timeline-year">Abad ke-19</span>
+              <h5 class="text-pink-dark">Perkembangan Teknik</h5>
+              <p class="text-brown">Teknik pembuatan batik semakin berkembang dengan ditemukannya canting tembaga. Batik mulai diproduksi secara massal dan menjadi komoditas perdagangan.</p>
+            </div>
+            
+            <div class="timeline-item">
+              <span class="timeline-year">2009</span>
+              <h5 class="text-pink-dark">Pengakuan UNESCO</h5>
+              <p class="text-brown">UNESCO menetapkan batik Indonesia sebagai Warisan Kemanusiaan untuk Budaya Lisan dan Nonbendawi (Masterpieces of the Oral and Intangible Heritage of Humanity).</p>
+            </div>
+            
+            <div class="timeline-item">
+              <span class="timeline-year">Sekarang</span>
+              <h5 class="text-pink-dark">Batik Modern</h5>
+              <p class="text-brown">Batik terus berkembang dengan motif kontemporer namun tetap mempertahankan nilai-nilai tradisional. Batik menjadi identitas bangsa Indonesia di kancah dunia.</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-md-6">
+          <img src="img/sejarah-batik.jpg" alt="Sejarah Batik Indonesia" class="history-image img-fluid">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Fakta -->
+  <section id="Fakta" class="section-facts batik-pattern">
+    <div class="container">
+      <div class="row text-center mb-5">
+        <div class="col">
+          <h2 class="section-title">🌟 Fakta Menarik Batik</h2>
+          <p class="section-subtitle">Hal-Hal Unik yang Perlu Anda Ketahui Tentang Batik</p>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col-md-4 mb-4">
+          <div class="fact-card">
+            <div class="fact-number">1</div>
+            <h4 class="text-pink-dark mb-3">Bukan Hanya dari Jawa</h4>
+            <p class="text-brown">Meski identik dengan Jawa, batik juga berkembang di berbagai daerah Indonesia seperti Bali, Sumatra, Kalimantan, Sulawesi, dan Papua dengan motif khas masing-masing.</p>
+          </div>
+        </div>
+        
+        <div class="col-md-4 mb-4">
+          <div class="fact-card">
+            <div class="fact-number">2</div>
+            <h4 class="text-pink-dark mb-3">Warna Alami dari Tumbuhan</h4>
+            <p class="text-brown">Batik tradisional menggunakan pewarna alami dari tumbuhan seperti tingi (coklat), indigofera (biru), soga (merah kecoklatan), dan kunyit (kuning).</p>
+          </div>
+        </div>
+        
+        <div class="col-md-4 mb-4">
+          <div class="fact-card">
+            <div class="fact-number">3</div>
+            <h4 class="text-pink-dark mb-3">Motif Larangan</h4>
+            <p class="text-brown">Beberapa motif batik seperti Parang Rusak dan Udan Liris dulunya hanya boleh dikenakan oleh keluarga kerajaan dan bangsawan.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col-md-4 mb-4">
+          <div class="fact-card">
+            <div class="fact-number">4</div>
+            <h4 class="text-pink-dark mb-3">Proses yang Panjang</h4>
+            <p class="text-brown">Membuat sehelai batik tulis berkualitas tinggi bisa memakan waktu 1-3 bulan, tergantung kerumitan motif dan jumlah warna yang digunakan.</p>
+          </div>
+        </div>
+        
+        <div class="col-md-4 mb-4">
+          <div class="fact-card">
+            <div class="fact-number">5</div>
+            <h4 class="text-pink-dark mb-3">Batik di Luar Angkasa</h4>
+            <p class="text-brown">Pada 1985, batik Indonesia dibawa ke luar angkasa oleh astronot Indonesia pertama, Pratiwi Sudarmono, dalam misi NASA.</p>
+          </div>
+        </div>
+        
+        <div class="col-md-4 mb-4">
+          <div class="fact-card">
+            <div class="fact-number">6</div>
+            <h4 class="text-pink-dark mb-3">Batik Cap vs Batik Tulis</h4>
+            <p class="text-brown">Batik cap menggunakan alat tembaga untuk mencetak motif, lebih cepat produksinya. Batik tulis dibuat manual dengan canting, lebih bernilai seni tinggi.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="row mt-5">
+        <div class="col-md-8 mx-auto">
+          <div class="card batik-card">
+            <div class="card-body text-center">
+              <h4 class="card-title text-pink-dark">💡 Fakta Bonus</h4>
+              <p class="card-text text-brown">
+                Tahukah Anda? Batik Parang memiliki filosofi "Jangan pernah menyerah seperti ombak laut yang tak pernah berhenti bergerak". 
+                Motif ini diyakini memberikan kekuatan dan semangat pantang menyerah bagi pemakainya.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Jenis Batik -->
+  <section id="Jenis" class="bg-light">
+    <div class="container">
+      <h2 class="text-center section-title">Jenis Batik</h2>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="card batik-card">
+            <img src="img/1.jpg" class="card-img-top" alt="Batik Parang">
+            <div class="card-body">
+              <h5 class="card-title">Batik Parang</h5>
+              <p class="card-text">Motif batik yang melambangkan kesinambungan 
+                dan kontinuitas. Berasal dari Yogyakarta dan Solo. Motif ini me
+                nggambarkan ombak laut yang tidak pernah berhenti.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card batik-card">
+            <img src="img/3.jpg" class="card-img-top" alt="Batik kawung">
+            <div class="card-body">
+              <h5 class="card-title">Batik Kawung</h5>
+              <p class="card-text">Motif geometris yang melambangkan kesempurnaan d
+                an kemurnian. Simbol dari buah aren yang tersusun rapi, melambangkan ha
+                ti yang bersih</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card batik-card">
+            <img src="img/3 (2).jpg" class="card-img-top" alt="Batik mega Mendung">
+            <div class="card-body">
+              <h5 class="card-title">Batik Mega Mendung</h5>
+              <p class="card-text">Motif khas Cirebon dengan bentuk awan yang megah,
+                 melambangkan kesuburan dan kemakmuran. Menggambarkan watak manusia 
+                 yang sabar dan tidak mudah marah</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="row row-equal mt-4">
+        <div class="col-md-4 mb-4">
+          <div class="card batik-card">
+            <img src="img/4.jpg" class="card-img-top" alt="Batik Sekar Jagad">
+            <div class="card-body">
+              <h5 class="card-title">Batik Sekar Jagad</h5>
+              <p class="card-text">Motif yang menggambarkan keindahan dan keragaman dunia, berasal dari Yogyakarta. "Sekar" berarti bunga, "Jagad" berarti dunia.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="card batik-card">
+            <img src="img/5.jpg" class="card-img-top" alt="Batik Truntum">
+            <div class="card-body">
+              <h5 class="card-title">Batik Truntum</h5>
+              <p class="card-text">Melambangkan cinta yang tumbuh kembali, sering digunakan dalam pernikahan adat Jawa. Diciptakan oleh Ratu Beruk, permaisuri Sunan Pakubuwana III.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="card batik-card">
+            <img src="img/6.jpg" class="card-img-top" alt="Batik Sido Asih">
+            <div class="card-body">
+              <h5 class="card-title">Batik Sido Asih</h5>
+              <p class="card-text">Motif yang berarti "menjadi kasih sayang", simbol harapan untuk kehidupan yang harmonis. Sering dipakai dalam acara lamaran dan pernikahan.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Informasi Tambahan -->
+      <div class="row mt-5">
+        <div class="col-md-8 mx-auto">
+          <div class="card batik-card">
+            <div class="card-body text-center">
+              <h4 class="card-title text-pink-dark">Melestarikan Warisan Budaya</h4>
+              <p class="card-text text-brown">
+                Dengan mengenal dan menggunakan batik, kita turut melestarikan warisan budaya leluhur yang tak ternilai harganya. 
+                Setiap helai kain batik menyimpan cerita, harapan, dan doa dari para pembuatnya. 
+                Mari jaga dan banggakan batik sebagai identitas bangsa Indonesia!
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Back to Home Button -->
+      <div class="text-center back-button">
+        <a href="index.html" class="btn btn-custom btn-lg">
+          <i class="fas fa-arrow-left me-2"></i>Kembali ke Home
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Batik Indonesia | Semua Hak Dilindungi</p>
+      <div>
+        <a href="#"><i class="fab fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
