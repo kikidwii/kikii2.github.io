@@ -356,20 +356,12 @@
       height: 100px;
       top: 10%;
       left: 5%;
-      background: var(--dark-pink);
+      background: var(--);
       border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
       animation: float 15s infinite ease-in-out;
     }
     
-    .shape-2 {
-      width: 150px;
-      height: 150px;
-      top: 60%;
-      right: 10%;
-      background: var(--secondary-pink);
-      border-radius: 50%;
-      animation: float 20s infinite ease-in-out reverse;
-    }
+   
     
     @keyframes float {
       0%, 100% {
@@ -405,6 +397,7 @@
       opacity: 1;
       visibility: visible;
     }
+    
     
     .scroll-top:hover {
       transform: translateY(-5px);
@@ -517,20 +510,13 @@
 </head>
 
 <body id="Home">
-  <!-- Navigation Indicator -->
-  <div class="section-indicator">
-    <div class="indicator-dot active" data-section="Home" data-target="#Home"></div>
-    <div class="indicator-dot" data-section="About" data-target="#About"></div>
-    <div class="indicator-dot" data-section="Projects" data-target="#Projects"></div>
-    <div class="indicator-dot" data-section="contact" data-target="#Contact"></div>
-    <div class="indicator-dot" data-section="batik" data-target="#Batik"></div>
-  </div>
+ 
 
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg navbar-dark shadow-sm fixed-top navbar-custom">
     <div class="container">
-      <a class="navbar-brand font-weight-bold" href="#Home">
-        <i class="fas fa-code mr-2"></i>Kiki Dwi
+      <a class="navbar-brand font-weight-bold" href="#Home"
+        class="fas fa-code mr-2"></i>Kiki Dwi
       </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -539,6 +525,9 @@
         <ul class="navbar-nav ml-auto">
           <li class="nav-item active">
             <a class="nav-link" href="#Home">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#About">About</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#Batik">Galeri Batik</a>
@@ -562,8 +551,70 @@
       <h1 class="hero-title">Kiki Dwi Setyaningrum</h1>
       <p class="hero-subtitle">Siswa SMKN 5 Malang | Jurusan PPLG | Pengembang Web & Game</p>
       <a href="#About" class="btn btn-custom mt-3">
-        <i class="fas fa-arrow-down mr-2"></i>Pelajari Lebih Lanjut
+        <i class="fas fa-arrow-down mr-2"></i>My Project
       </a>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="About" class="section-custom batik-pattern">
+    <div class="container">
+      <div class="row text-center mb-5">
+        <div class="col">
+          <h2 class="section-title text-pink-dark">About Me</h2>
+          <p class="section-subtitle">Mengenal lebih dekat tentang diri saya</p>
+        </div>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-md-8">
+          <div class="row">
+            <div class="col-md-6 mb-4">
+              <div class="card card-custom h-100">
+                <div class="card-body">
+                  <h5 class="card-title text-pink-dark">
+                    <i class="fas fa-user-graduate mr-2"></i>Profil
+                  </h5>
+                  <p class="card-text about-content">
+                    Nama saya Kiki Dwi Setyaningrum, lahir di Malang pada tanggal 18 Mei 2009. 
+                    Saya adalah siswa SMKN 5 Malang tahun ajaran 2024/2025, 
+                    kelas XI PPLG 1 jurusan Pengembangan Perangkat Lunak dan Gim.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 mb-4">
+              <div class="card card-custom h-100">
+                <div class="card-body">
+                  <h5 class="card-title text-pink-dark">
+                    <i class="fas fa-home mr-2"></i>Kehidupan
+                  </h5>
+                  <p class="card-text about-content">
+                    Saya tinggal di Jalan Wiroto 2 No. 14, Kota Malang. 
+                    Saya aktif di bidang teknologi dan mengikuti ekstrakurikuler Bola Voli. 
+                    Hobi saya membaca dan bermain game.
+                            <a href="https://wa.me/qr/AKNXPFUXY4O3E1" class="text-pink-dark font-weight-bold">Contact Me:085872993327</a>
+
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="row mt-4">
+            <div class="col-12 text-center">
+              <h4 class="text-pink-dark mb-4">Skills & Minat</h4>
+              <div>
+                <span class="skill-badge">Web Development</span>
+                <span class="skill-badge">UI/UX Design</span>
+                <span class="skill-badge">Game Development</span>
+                <span class="skill-badge">Bola Voli</span>
+                <span class="skill-badge">Membaca</span>
+                <span class="skill-badge">Teknologi</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -603,7 +654,7 @@
       <div class="row text-center mb-5">
         <div class="col">
           <h2 class="section-title text-pink-dark">Contact Kami</h2>
-          <p class="section-subtitle">Hubungi saya untuk kolaborasi atau pertanyaan</p>
+          <p class="section-subtitle">Hubungi kami untuk kolaborasi atau pertanyaan</p>
         </div>
       </div>
       <div class="row justify-content-center">
@@ -617,12 +668,12 @@
 
           <form name="WPU-Contact-form">
             <div class="mb-3">
-              <label for="name" class="form-label text-pink-dark font-weight-bold">Nama Lengkap</label>
+              <label for="name" class="form-label text-pink-dark font-weight-bold">Nama</label>
               <input type="text" class="form-control" id="name" aria-describedby="name" name="nama" required>
             </div>
 
             <div class="mb-3">
-              <label for="email" class="form-label text-pink-dark font-weight-bold">Email</label>
+              <label for="email" class="form-label text-pink-dark font-weight-bold">No hp</label>
               <input type="email" class="form-control" id="email" aria-describedby="email" name="email" required>
             </div>
 
@@ -639,20 +690,7 @@
       </div>
     </div>
   </section>
-  <div class="footer-social">
-              <a href="https://www.instagram.com/c00sixzz/" target="_blank" class="instagram"><i class="fab fa-instagram"></i></a>
-              <a href="https://www.tiktok.com/@miitwokyyy?is_from_webapp=1&sender_device=pc" target="_blank" class="tiktok"><i class="fab fa-tiktok"></i></a>
-              <a href="https://github.com/chelsya12-tech" target="_blank" class="github"><i class="fab fa-github"></i></a>
-            </div>
-          </div>
 
-  <!-- Footer -->
-  <footer class="fw-bold text-center p-3 footer-custom"> 
-    <p class="text-pink-dark mb-0">
-      <i class="fas fa-heart text-danger mr-1"></i> created with love by 
-      <a href="https://www.instagram.com/c00sixzz/" class="text-pink-dark font-weight-bold">kiki dwi</a>
-    </p>
-  </footer>
 
   <!-- Scroll to Top Button -->
   <div class="scroll-top">
@@ -747,7 +785,7 @@
           const sectionHeight = section.outerHeight();
           const sectionId = section.attr('id');
           
-          if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
+          if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight){
             // Update navbar
             $('.nav-link').removeClass('active');
             $(.nav-link[href="#${sectionId}"]).addClass('active');
@@ -764,10 +802,10 @@
         const hash = window.location.hash;
         if (hash) {
           $('.nav-link').removeClass('active');
-          $(.nav-link[href="${hash}"]).addClass('active');
+          $('.nav-link[href="${hash}"]').addClass('active');
           
           $('.indicator-dot').removeClass('active');
-          $(.indicator-dot[data-target="${hash}"]).addClass('active');
+          $('.indicator-dot[data-target="${hash}"]').addClass('active');
         }
       }
       
@@ -822,5 +860,24 @@
       }
     });
   </script>
+
+
+    <!-- Footer -->
+  <footer class="fw-bold text-center p-3 footer-custom"> 
+    <div class="container">
+      <p>&copy; 2025 Batik Indonesia </p>
+      <p class="text-pink-dark mb-0">
+      <i class="fas fa-heart text-danger mr-1"></i> created with love by 
+      <a href="https://www.instagram.com/c00sixzz/" class="text-pink-dark font-weight-bold">kiki dwi</a>
+    </p>
+<div class="footer-social">
+              <a href="https://www.instagram.com/c00sixzz/" target="_blank" class="instagram"><i class="fab fa-instagram"></i></a>
+              <a href="https://www.tiktok.com/@miitwokyyy?is_from_webapp=1&sender_device=pc" target="_blank" class="tiktok"><i class="fab fa-tiktok"></i></a>
+              <a href="https://github.com/kikidwii" target="_blank" class="github"><i class="fab fa-github"></i></a>
+            </div>
+            
+    </div>
+  </footer>
+
 </body>
 </html>
